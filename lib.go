@@ -6,10 +6,16 @@ package workspace_lib
 //
 // [mathsisfun]: https://www.mathsisfun.com/numbers/addition.html
 
-func AddNums(a, b int) int {
+import "golang.org/x/exp/constraints"
+
+type Number interface {
+	constraints.Integer | constraints.Float
+}
+
+func AddNums[T Number](a, b T) T {
 	return a + b
 }
 
-func SubNums(a, b int) int {
+func SubNums[T Number](a, b T) T {
 	return a - b
 }
